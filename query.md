@@ -34,9 +34,25 @@
         where a.description like '%facere%';
 
     7. Selezionare tutti i videogame che hanno la categoria 2 (FPS) o 6 (RPG), mostrandoli una sola volta (del videogioco vogliamo solo l'ID) (287)
+        select distinct videogame_id  
+        from category_videogame cv 
+        where cv.category_id = 2 
+        or cv.category_id = 6;
+
     8. Selezionare tutte le recensioni con voto compreso tra 2 e 4 (2947)
+        select *
+        from reviews r 
+        where r.rating between 2 and 4;
+
     9. Selezionare tutti i dati dei videogiochi rilasciati nell'anno 2020 (46)
+        select *
+        from videogames v 
+        where year(v.release_date) = 2020;
+
     10. Selezionare gli id dei videogame che hanno ricevuto almeno una recensione da 5 stelle, mostrandoli una sola volta (443)
+    select distinct r.videogame_id 
+    from reviews r 
+    where r.rating = 5;
 
 ##### BONUS
     11. Selezionare il numero e la media delle recensioni per il videogioco con ID = 412 (review number = 12, avg_rating = 3.16 circa)
