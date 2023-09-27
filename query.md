@@ -2,6 +2,8 @@
 #### SELECT
 
     1. Selezionare tutte le software house americane (3)
+
+
         ```sql
         select *
         from software_houses sh 
@@ -95,10 +97,16 @@
     6. Ordinare i videogame in base alla media delle recensioni (del videogioco vogliamo solo l'ID) (500)
         select r.videogame_id , avg(r.rating)  
         from reviews r 
-        group by r.videogame_id ; 
+        group by r.videogame_id order by avg(r.rating) desc; 
+
+
 
 #### JOIN
     1. Selezionare i dati di tutti giocatori che hanno scritto almeno una recensione, mostrandoli una sola volta (996)
+        select distinct p.*
+        from reviews r  
+        join players p  on r.player_id = p.id;
+        
     2. Sezionare tutti i videogame dei tornei tenuti nel 2016, mostrandoli una sola volta (226)
     3. Mostrare le categorie di ogni videogioco (1718)
     4. Selezionare i dati di tutte le software house che hanno rilasciato almeno un gioco dopo il 2020, mostrandoli una sola volta (6)
