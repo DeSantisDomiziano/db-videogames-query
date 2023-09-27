@@ -29,6 +29,10 @@
         where t.year = 2015;
 
     6. Selezionare tutti i premi che contengono nella descrizione la parola 'facere' (2)
+        select * 
+        from awards a 
+        where a.description like '%facere%';
+
     7. Selezionare tutti i videogame che hanno la categoria 2 (FPS) o 6 (RPG), mostrandoli una sola volta (del videogioco vogliamo solo l'ID) (287)
     8. Selezionare tutte le recensioni con voto compreso tra 2 e 4 (2947)
     9. Selezionare tutti i dati dei videogiochi rilasciati nell'anno 2020 (46)
