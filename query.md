@@ -50,13 +50,21 @@
         where year(v.release_date) = 2020;
 
     10. Selezionare gli id dei videogame che hanno ricevuto almeno una recensione da 5 stelle, mostrandoli una sola volta (443)
-    select distinct r.videogame_id 
-    from reviews r 
-    where r.rating = 5;
+        select distinct r.videogame_id 
+        from reviews r 
+        where r.rating = 5;
 
 ##### BONUS
     11. Selezionare il numero e la media delle recensioni per il videogioco con ID = 412 (review number = 12, avg_rating = 3.16 circa)
+        select count(id), avg(r.rating)
+        from reviews r 
+        where r.videogame_id = 412;
+
     12. Selezionare il numero di videogame che la software house con ID = 1 ha rilasciato nel 2018 (13)
+        select *
+        from videogames v 
+        where v.software_house_id = 1
+        and year(v.release_date) = 2018;
 
 #### GROUP BY
     1. Contare quante software house ci sono per ogni paese (3)
