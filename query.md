@@ -11,8 +11,13 @@
     2. Selezionare tutti i giocatori della cittÃ  di 'Rogahnland' (2)
         select * 
         from players p 
-        where p.city like 'Rogahnland'
+        where p.city like 'Rogahnland';
+
     3. Selezionare tutti i giocatori il cui nome finisce per "a" (220)
+        select * 
+        from players p 
+        where p.name like '%a';
+
     4. Selezionare tutte le recensioni scritte dal giocatore con ID = 800 (11)
     5. Contare quanti tornei ci sono stati nell'anno 2015 (9)
     6. Selezionare tutti i premi che contengono nella descrizione la parola 'facere' (2)
