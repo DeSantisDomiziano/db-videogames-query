@@ -2,6 +2,12 @@
 #### SELECT
 
     1. Selezionare tutte le software house americane (3)
+        ```sql
+        select *
+        from software_houses sh 
+        where sh.country like 'United States';
+        ```
+
     2. Selezionare tutti i giocatori della cittÃ  di 'Rogahnland' (2)
     3. Selezionare tutti i giocatori il cui nome finisce per "a" (220)
     4. Selezionare tutte le recensioni scritte dal giocatore con ID = 800 (11)
