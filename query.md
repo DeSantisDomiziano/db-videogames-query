@@ -106,14 +106,54 @@
         select distinct p.*
         from reviews r  
         join players p  on r.player_id = p.id;
-        
+
     2. Sezionare tutti i videogame dei tornei tenuti nel 2016, mostrandoli una sola volta (226)
+        select distinct v.id, v.name
+        from tournaments t 
+        join tournament_videogame tv on t.id = tv.tournament_id
+        join videogames v on tv.videogame_id = v.id 
+        where t.year = 2016;
+
     3. Mostrare le categorie di ogni videogioco (1718)
+        select v.name, cv.category_id 
+        from videogames v 
+        join category_videogame cv on v.id = cv.videogame_id  
+
     4. Selezionare i dati di tutte le software house che hanno rilasciato almeno un gioco dopo il 2020, mostrandoli una sola volta (6)
+        select distinct sh.name
+        from software_houses sh 
+        join videogames v on sh.id = v.software_house_id 
+        where year(v.release_date) > 2020
+
     5. Selezionare i premi ricevuti da ogni software house per i videogiochi che ha prodotto (55)
+        select *
+        from software_houses sh 
+        join videogames v on sh.id = v.software_house_id 
+        join award_videogame av on v.id = av.videogame_id 
+
     6. Selezionare categorie e classificazioni PEGI dei videogiochi che hanno ricevuto recensioni da 4 e 5 stelle, mostrandole una sola volta (3363)
+        select distinct v.name, c.name, pl.name
+        from videogames v 
+        join reviews r on v.id = r.videogame_id 
+        join category_videogame cv on v.id = cv.videogame_id 
+        join categories c on cv.category_id = c.id
+        join pegi_label_videogame plv on v.id = plv.videogame_id 
+        join pegi_labels pl on plv.pegi_label_id = pl.id 
+        where r.rating = 4
+        or r.rating = 5;
+
     7. Selezionare quali giochi erano presenti nei tornei nei quali hanno partecipato i giocatori il cui nome inizia per 'S' (474)
-    8. Selezionare le cittÃ  in cui Ã¨ stato giocato il gioco dell'anno del 2018 (36)
+        select distinct v.name
+        from videogames v 
+        join tournament_videogame tv on v.id = tv.videogame_id 
+        join tournaments t on tv.tournament_id = t.id 
+        join player_tournament pt on t.id = pt.tournament_id 
+        join players p on pt.player_id = p.id 
+        where p.name like 's%';
+
+        mi esce 473 🙃
+
+    8. Selezionare le citta  in cui  stato giocato il gioco dell'anno del 2018 (36)
     9. Selezionare i giocatori che hanno giocato al gioco piÃ¹ atteso del 2018 in un torneo del 2019 (3306)
 
 ##### BONUS
